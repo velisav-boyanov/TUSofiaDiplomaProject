@@ -1,3 +1,9 @@
+import tkinter as tk
+import cv2
+import threading
+import time
+from tkinter import ttk
+
 # --- VIDEO PLAYER CLASS ---
 class DualVideoPlayer:
     def __init__(self, master, video1_path, video2_path):
