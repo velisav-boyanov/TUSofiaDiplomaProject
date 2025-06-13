@@ -1,8 +1,8 @@
 import os
 import threading
 import tkinter as tk
-from fft_visualizer import audio_to_fft_video
-from ml_visualizer import audio_to_ml_fft_video
+from fft import audio_to_fft_video
+from lml import audio_to_ml_fft_video
 from video_helper import DualVideoPlayer
 
 # --- CONFIG ---
