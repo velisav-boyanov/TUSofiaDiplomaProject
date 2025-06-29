@@ -17,7 +17,7 @@ Returns:
     frame_files (list): List of saved image frame file paths.
     sr (int): Sample rate of the audio.
 """
-def compute_fft_frames(audio_path, frame_duration=0.05, n_fft=2048, frame_folder='frames_fft'):=
+def compute_fft_frames(audio_path, frame_duration=0.05, n_fft=2048, frame_folder='frames_fft'):
     # Load audio
     y, sr = librosa.load(audio_path, sr=None)
     frame_length = int(sr * frame_duration)
