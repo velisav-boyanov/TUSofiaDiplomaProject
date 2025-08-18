@@ -6,7 +6,19 @@ from sklearn.linear_model import LinearRegression
 import moviepy.editor as mpy
 
 """
-Generates waveform and FFT magnitude pairs for training.
+Generates waveform and FFT magnitude pairs for training a model.
+
+Parameters:
+    audio_path (str): Path to the audio file.
+    frame_duration (float, optional): Duration of each frame in seconds. Defaults to 0.05.
+    n_fft (int, optional): Number of FFT points. Defaults to 2048.
+    max_samples (int, optional): Maximum number of frames to process. Defaults to 1000.
+
+Returns:
+    tuple: (X, Y, sr)
+        X (numpy.ndarray): Array of waveform segments (frames).
+        Y (numpy.ndarray): Array of corresponding FFT magnitudes.
+        sr (int): Sampling rate of the audio.
 """
 def generate_training_data(audio_path, frame_duration=0.05, n_fft=2048, max_samples=1000):
     y, sr = librosa.load(audio_path, sr=None)
@@ -36,7 +48,14 @@ def generate_training_data(audio_path, frame_duration=0.05, n_fft=2048, max_samp
 
 
 """
-Trains a linear regression model to mimic FFT magnitude output.
+Trains a linear regression model to predict FFT magnitudes from waveform frames.
+
+Parameters:
+    X (numpy.ndarray): Array of waveform frames.
+    Y (numpy.ndarray): Array of corresponding FFT magnitudes.
+
+Returns:
+    sklearn.linear_model.LinearRegression: Trained linear regression model
 """
 def train_linear_fft_model(X, Y):
     model = LinearRegression()
@@ -45,7 +64,18 @@ def train_linear_fft_model(X, Y):
 
 
 """
-Uses the trained model to predict FFT-like magnitudes and save plots as frames.
+Generates predicted FFT magnitude frames from a trained model and saves them as images.
+
+Parameters:
+    model (LinearRegression): Trained linear regression model.
+    y (numpy.ndarray): Full audio waveform.
+    sr (int): Sampling rate of the audio.
+    frame_duration (float): Duration of each frame in seconds.
+    frame_folder (str): Folder to save generated frame images.
+    n_fft (int): Number of FFT points.
+
+Returns:
+    list: List of file paths to saved frame images.
 """
 def generate_frames_from_model(model, y, sr, frame_duration, frame_folder, n_fft):
     os.makedirs(frame_folder, exist_ok=True)
@@ -80,10 +110,18 @@ def generate_frames_from_model(model, y, sr, frame_duration, frame_folder, n_fft
 
 
 """
-Creates a video from image frames and syncs it with audio.
+Creates a video from a sequence of image frames and adds audio.
+
+Parameters:
+    frame_files (list): List of frame image file paths.
+    audio_path (str): Path to the audio file to sync with the video.
+    output_path (str): Path to save the generated video.
+    fps (int): Frames per second for the video.
+
+Returns:
+    None
 """
 def create_video_from_frames(frame_files, audio_path, output_path, fps):
-
     clip = mpy.ImageSequenceClip(frame_files, fps=fps)
     clip = clip.set_audio(mpy.AudioFileClip(audio_path))
     clip.write_videofile(output_path, codec='libx264', audio_codec='aac')
@@ -91,7 +129,22 @@ def create_video_from_frames(frame_files, audio_path, output_path, fps):
 
 
 """
-Full pipeline using a linear model to generate FFT-like video visualization.
+Full pipeline to generate an FFT-like video from an audio file using a linear model.
+
+Steps:
+    1. Generate waveform and FFT magnitude training data.
+    2. Train a linear regression model to predict FFT magnitudes.
+    3. Use the model to generate predicted FFT frames.
+    4. Compile frames into a video synced with the original audio.
+
+Parameters:
+    audio_path (str): Path to the input audio file.
+    output_path (str, optional): Path to save the output video. Defaults to 'ml_fft_video.mp4'.
+    frame_duration (float, optional): Duration of each frame in seconds. Defaults to 0.05.
+    n_fft (int, optional): Number of FFT points. Defaults to 2048.
+
+Returns:
+    None
 """
 def audio_to_ml_fft_video(audio_path, output_path='ml_fft_video.mp4', frame_duration=0.05, n_fft=2048):
     # Step 1: Prepare data
@@ -107,9 +160,3 @@ def audio_to_ml_fft_video(audio_path, output_path='ml_fft_video.mp4', frame_dura
 
     # Step 4: Create video
     create_video_from_frames(frame_files, audio_path, output_path, fps=int(1 / frame_duration))
-
-"""
-test function
-"""
-def test2():
-   audio_to_ml_fft_video('your_audio_file.wav', 'linear_fft_video.mp4', frame_duration=0.05)

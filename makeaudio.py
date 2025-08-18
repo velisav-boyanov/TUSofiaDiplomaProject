@@ -1,7 +1,12 @@
 import numpy as np
 from scipy.io.wavfile import write
+from pathlib import Path
+
+OUT_DIR = Path("audio_out")
 
 def generate_wav(filename, seed=None):
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+
     # Set random seed for reproducibility / variety
     if seed is not None:
         np.random.seed(seed)
@@ -35,5 +40,5 @@ def generate_wav(filename, seed=None):
     stereo_signal = (stereo_signal * 32767).astype(np.int16)
 
     # Write to WAV
-    write(filename, sample_rate, stereo_signal)
-    print(f"Saved {filename}")
+    write(OUT_DIR / filename, sample_rate, stereo_signal)
+    print(f"Saved {OUT_DIR / filename}")
