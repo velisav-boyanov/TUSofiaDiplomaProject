@@ -1,0 +1,90 @@
+[
+  {
+    "function": "audio_to_fft_video",
+    "execution_time_s": 52.06504559516907,
+    "ram_avg_mb": 388.3061181329618,
+    "ram_peak_mb": 408.421875,
+    "cpu_avg_percent": 32.34823513800424,
+    "cpu_peak_percent": 46.1375
+  },
+  {
+    "function": "audio_to_ml_fft_video",
+    "execution_time_s": 86.74560689926147,
+    "ram_avg_mb": 438.2963558306709,
+    "ram_peak_mb": 438.609375,
+    "cpu_avg_percent": 71.03634185303522,
+    "cpu_peak_percent": 119.3625
+  },
+  {
+    "function": "audio_to_fft_video",
+    "execution_time_s": 69.05372619628906,
+    "ram_avg_mb": 438.74843493431854,
+    "ram_peak_mb": 438.984375,
+    "cpu_avg_percent": 32.787407635467936,
+    "cpu_peak_percent": 61.5625
+  },
+  {
+    "function": "audio_to_ml_fft_video",
+    "execution_time_s": 90.2235655784607,
+    "ram_avg_mb": 452.2846172863924,
+    "ram_peak_mb": 452.5078125,
+    "cpu_avg_percent": 68.7331170886076,
+    "cpu_peak_percent": 265.425
+  },
+  {
+    "function": "audio_to_fft_video",
+    "execution_time_s": 54.81696391105652,
+    "ram_avg_mb": 452.5078125,
+    "ram_peak_mb": 452.5078125,
+    "cpu_avg_percent": 33.55970225872687,
+    "cpu_peak_percent": 49.3625
+  },
+  {
+    "function": "audio_to_fft_video",
+    "execution_time_s": 52.525407791137695,
+    "ram_avg_mb": 393.5931753065032,
+    "ram_peak_mb": 406.0546875,
+    "cpu_avg_percent": 34.36988272921113,
+    "cpu_peak_percent": 54.4
+  },
+  {
+    "function": "audio_to_ml_fft_video",
+    "execution_time_s": 88.59017777442932,
+    "ram_avg_mb": 439.6221891812374,
+    "ram_peak_mb": 439.7421875,
+    "cpu_avg_percent": 72.36347511768663,
+    "cpu_peak_percent": 100.0
+  },
+  {
+    "function": "audio_to_fft_video",
+    "execution_time_s": 50.93564462661743,
+    "ram_avg_mb": 439.956198489011,
+    "ram_peak_mb": 440.2421875,
+    "cpu_avg_percent": 34.752912087912115,
+    "cpu_peak_percent": 100.0
+  },
+  {
+    "function": "audio_to_ml_fft_video",
+    "execution_time_s": 92.1078233718872,
+    "ram_avg_mb": 453.26090337989723,
+    "ram_peak_mb": 453.4140625,
+    "cpu_avg_percent": 68.13157514450872,
+    "cpu_peak_percent": 100.0
+  },
+  {
+    "function": "audio_to_fft_video",
+    "execution_time_s": 58.10165476799011,
+    "ram_avg_mb": 453.53281862144956,
+    "ram_peak_mb": 453.7890625,
+    "cpu_avg_percent": 35.15571743388837,
+    "cpu_peak_percent": 100.0
+  },
+  {
+    "function": "audio_to_ml_fft_video",
+    "execution_time_s": 96.0672960281372,
+    "ram_avg_mb": 471.3181903545673,
+    "ram_peak_mb": 471.4453125,
+    "cpu_avg_percent": 66.92195763221162,
+    "cpu_peak_percent": 100.0
+  }
+]

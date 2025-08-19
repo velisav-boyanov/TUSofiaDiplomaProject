@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import os
 from sklearn.linear_model import LinearRegression
 import moviepy.editor as mpy
+from meassure import profile_resources
 
 """
 Generates waveform and FFT magnitude pairs for training a model.
@@ -146,6 +147,7 @@ Parameters:
 Returns:
     None
 """
+@profile_resources
 def audio_to_ml_fft_video(audio_path, output_path='ml_fft_video.mp4', frame_duration=0.05, n_fft=2048):
     # Step 1: Prepare data
     X_train, Y_train, sr = generate_training_data(audio_path, frame_duration, n_fft)

@@ -28,14 +28,14 @@ for file in audio_files:
    fft_video = f"{os.path.splitext(file)[0]}_fft.mp4"
    ml_video = f"{os.path.splitext(file)[0]}_ml.mp4"
 
+   print(f"Meassurement for {fft_video}")
    audio_to_fft_video(str(AUDIO_DIR/file), str(VIDEO_DIR/fft_video))
    
+   print(f"Meassurement for {ml_video}")
    audio_to_ml_fft_video(str(AUDIO_DIR/file), str(VIDEO_DIR/ml_video))
 
    video_pairs.append((VIDEO_DIR/fft_video, VIDEO_DIR/ml_video))
 
-
-aaaaaaaaaaa
 #FOR TESTING ONLY
 # video_pairs.append(("file1_fft.mp4","file1_ml.mp4"))
 # video_pairs.append(("file2_fft.mp4","file2_ml.mp4"))

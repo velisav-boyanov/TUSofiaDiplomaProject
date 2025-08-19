@@ -3,6 +3,7 @@ import librosa
 import matplotlib.pyplot as plt
 import moviepy.editor as mpy
 import os
+from meassure import profile_resources
 
 """
 Load audio and save FFT plots as image frames.
@@ -77,6 +78,7 @@ Parameters:
     frame_duration (float): Duration of each FFT frame (in seconds).
     n_fft (int): FFT size.
 """
+@profile_resources
 def audio_to_fft_video(audio_path, output_path='fft_audio_video.mp4', frame_duration=0.05, n_fft=2048):
     frame_folder = 'frames_fft'
     frame_files, sr = compute_fft_frames(audio_path, frame_duration, n_fft, frame_folder)
